@@ -5,6 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import me.enchanted.main.Main;
+
 public class Commands implements CommandExecutor {
 
 	@Override
@@ -13,9 +15,16 @@ public class Commands implements CommandExecutor {
 		Player player = (Player) sender;
 		if(player.hasPermission("enchanted.hat"))
 		{
-			if(cmd.getName().equalsIgnoreCase("christmas"))
-			{
-				
+			if(!Main.toggled.contains(player.getName())){
+				if(cmd.getName().equalsIgnoreCase("christmas"))
+				{
+					Main.toggled.add(player.getName());
+				}
+			}else{
+				if(cmd.getName().equalsIgnoreCase("christmas"))
+				{
+					Main.toggled.remove(player.getName());
+				}
 			}
 		}
 		return true;

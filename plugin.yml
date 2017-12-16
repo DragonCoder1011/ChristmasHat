@@ -1,0 +1,6 @@
+name: ChristmasHat
+version: 1.0
+main: me.enchanted.main.Main
+commands:
+  christmas:
+    description: Toggles the christmas hat!
